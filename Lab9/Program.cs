@@ -17,36 +17,51 @@ namespace Lab9
 
                
                 Circle newcircle = new Circle();
-                Count++;
+                Count++; //count gives the total circles tested
 
                 Console.WriteLine("Welcome to the Circle test!");
-                Console.WriteLine("Enter radius");
-                newcircle.radius = double.Parse(Console.ReadLine());
+                Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                Console.WriteLine("Please enter radius");
 
-                if (newcircle.radius < 0)
+                //ensures the user enters the right type of input
+                while (!double.TryParse(Console.ReadLine(), out newcircle.radius))
                 {
 
+                    Console.WriteLine("Please make sure you enter a number");
                 }
+                
                     
                 Console.WriteLine("This is the circumference " + newcircle.Circumferance());
                 Console.WriteLine("This is the area " + newcircle.GetArea());
 
-                Console.WriteLine("Continue? y/n");
-                string userChoice = Console.ReadLine();
-                if (userChoice == "y")
+                bool choice = true;
+                while (choice == true)
                 {
-                    programContinues = true;
+                    Console.WriteLine("Continue? y/n"); //gives the user the option to continue or not
+                    string userChoice = Console.ReadLine();
+                    if (userChoice == "y" || userChoice == "Y")
+                    {
+                        Console.WriteLine("Good!");
+                        choice = true;
+                        break;
+                        
+                    }
+                    else if (userChoice == "n" || userChoice == "N")
+                    {
+
+                        Console.WriteLine(" You have created " + "" + Count + " objects"  + " Bye Bye");
+                        programContinues = false;
+                        break;
+
+
+                    }
+                    else if (userChoice != "n" || userChoice != "N" || userChoice != "Y" || userChoice != "y")
+                    {
+                        Console.WriteLine("Please pick y or n");
+                        choice = true;
+
+                    }
                 }
-                else
-                {
-                   
-                    
-                    programContinues = false;
-                    Console.WriteLine("Bye Bye" + " you have created " + " " + Count + " objects");
-
-
-                }
-
             }
 
         }
