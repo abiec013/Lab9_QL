@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Lab9
 {
     class Program
@@ -19,17 +20,18 @@ namespace Lab9
                 Circle newcircle = new Circle();
                 Count++; //count gives the total circles tested
 
-                Console.WriteLine("Welcome to the Circle test!");
+                Console.WriteLine("Welcome to the Circle tester!");
                 Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^");
                 Console.WriteLine("Please enter radius");
 
-                //ensures the user enters the right type of input
-                while (!double.TryParse(Console.ReadLine(), out newcircle.radius))
-                {
-
-                    Console.WriteLine("Please make sure you enter a number");
-                }
                 
+                double num2;
+                while (!double.TryParse(Console.ReadLine(), out num2)) 
+                {
+                    Console.WriteLine("Please enter a number");
+                }
+
+                newcircle.Radius = num2;
                     
                 Console.WriteLine("This is the circumference " + newcircle.Circumferance());
                 Console.WriteLine("This is the area " + newcircle.GetArea());
@@ -57,7 +59,7 @@ namespace Lab9
                     }
                     else if (userChoice != "n" || userChoice != "N" || userChoice != "Y" || userChoice != "y")
                     {
-                        Console.WriteLine("Please pick y or n");
+                        Console.WriteLine("Please pick \"y\" or \"n\"");
                         choice = true;
 
                     }

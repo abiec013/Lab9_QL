@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    class Circle
+   public class Circle
     {
-        
-        public double radius;
 
-
+        private double radius;
+       
 
 
 
